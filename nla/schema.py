@@ -222,6 +222,18 @@ def compute_canonical_neighbors(
         tokenize=True,
         add_generation_prompt=True,
     )
+
+    # transformers>=5 compat: apply_chat_template(tokenize=True) no longer
+    # reliably returns list[int]. Observed returning BatchEncoding on 5.12/5.14.
+    # enumerate() over a BatchEncoding iterates dict KEYS, so the scan below
+    # finds 0 matches and asserts as if the vocab had drifted.
+    if isinstance(ids, str):
+        ids = tokenizer.encode(ids, add_special_tokens=False)
+    elif hasattr(ids, "keys"):
+        ids = ids["input_ids"]
+    if ids and isinstance(ids[0], list):
+        ids = ids[0]
+
     matches = [i for i, tid in enumerate(ids) if tid == injection_token_id]
     assert len(matches) == 1, (
         f"injection token id {injection_token_id} ({injection_char!r}) appears "
