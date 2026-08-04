@@ -188,6 +188,17 @@ def load_nla_config(
         [{"role": "user", "content": content}],
         tokenize=True, add_generation_prompt=True,
     )
+
+    # transformers>=5 compat: apply_chat_template(tokenize=True) no longer
+    # reliably returns list[int] - observed returning BatchEncoding (dict)
+    # and rendered str on 5.12.1. Normalize to flat list[int].
+    if isinstance(ids, str):  # returned rendered text
+        input_ids = tokenizer.encode(ids, add_special_tokens=False)
+    elif hasattr(ids, "keys"):  # BatchEncoding to ids
+        input_ids = ids["input_ids"]
+    if ids and isinstance(ids[0], list):  # unwrap ids batch dim
+        input_ids = ids[0]
+
     matches = [i for i, tok in enumerate(ids) if tok == cfg.injection_token_id]
     assert len(matches) == 1, (
         f"injection token appears {len(matches)}× in canonical prompt "
@@ -404,6 +415,17 @@ class NLAClient:
             [{"role": "user", "content": content}],
             tokenize=True, add_generation_prompt=True,
         )
+
+        # transformers>=5 compat: apply_chat_template(tokenize=True) no longer
+        # reliably returns list[int] - observed returning BatchEncoding (dict)
+        # and rendered str on 5.12.1. Normalize to flat list[int].
+        if isinstance(input_ids, str):  # returned rendered text
+            input_ids = self.tokenizer.encode(input_ids, add_special_tokens=False)
+        elif hasattr(input_ids, "keys"):  # BatchEncoding to ids
+            input_ids = input_ids["input_ids"]
+        if input_ids and isinstance(input_ids[0], list):  # unwrap ids batch dim
+            input_ids = input_ids[0]
+
         ids_t = torch.tensor(input_ids, dtype=torch.long).unsqueeze(0)
 
         with torch.no_grad():
