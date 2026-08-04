@@ -4,3 +4,27 @@ __pycache__/
 .pytest_cache/
 build/
 dist/
+
+# Benchmark harness
+.venv/
+# Regenerable via `python -m bench.emotions`; ~20 MB each. The derived vectors
+# and the passage list ARE committed — those are the artifact.
+# the emotion corpus is ~20 MB and fully regenerable by `python -m bench.emotions`,
+# so it is rebuilt rather than shipped
+results/**/emotion_activations*.npz
+results/**/emotion_vectors*.npz
+results/**/emotion_passages.json
+results/emotion_activations*.npz
+
+# Write-up prose, kept out of the repo deliberately — these are drafts for an external
+# write-up, not artifacts of a run. The generated per-test .md files under results/ stay.
+results/STORY.md
+results/FINDINGS.md
+results/novelty_audit.md
+results/INDEX.md
+# hand-written synthesis of prompt_elicitation.md + prompted_readout.md, and it
+# cited the excluded FINDINGS.md. No script produces it.
+results/queryability.md
+results/t7_queryability/queryability.md
+results/archive/README.md
+AUDIT.md

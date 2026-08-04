@@ -1,0 +1,22 @@
+# NLA faithfulness benchmark.
+#
+# Deps for the benchmark harness ONLY — deliberately kept OUT of pyproject.toml,
+# whose dependency list is the upstream `nla` package's public contract
+# (see CLAUDE.md: "Only standard libs ... No private/internal dependencies").
+#
+# torch is NOT listed here. This box runs driver 470.239.06 (CUDA 11.4 max), so
+# torch must come from the cu118 index or it will install an unusable cu12 build:
+#
+#   uv pip install torch --index-url https://download.pytorch.org/whl/cu118
+#
+# Then:  uv pip install -e . -r requirements-bench.txt
+
+accelerate          # device_map / dtype handling for Qwen2.5-7B-Instruct
+scikit-learn        # linear-probe baselines (logistic regression, grouped CV)
+scipy               # every p-value in the results. Each import is wrapped in
+                    #   try/except, so WITHOUT scipy the runs still report "ok"
+                    #   and silently emit p=nan — including the mechanism test,
+                    #   whose claim is that a difference is NOT significant
+matplotlib          # T3/T6 recovery + dose-response curves
+pandas              # results tables
+tqdm                # capture loops are long and silent otherwise
