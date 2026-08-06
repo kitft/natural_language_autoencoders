@@ -1,0 +1,60 @@
+{
+  "qwen": {
+    "n": 318,
+    "n_swayed": 150,
+    "text_probe_overall": {
+      "auroc": 0.8736507936507937,
+      "n": 318
+    },
+    "text_probe_answer_stratified": {
+      "auroc": 0.8803904637516399,
+      "n": 316,
+      "groups": 2
+    },
+    "text_probe_claim_stratified": {
+      "auroc": 0.8758948545861299,
+      "n": 298,
+      "groups": 30
+    },
+    "text_probe_claim_and_answer_stratified": {
+      "auroc": NaN,
+      "n": 0
+    },
+    "shortcut_answer_stratified": 0.286504968957194,
+    "shortcut_claim_stratified": 0.44065995525727075,
+    "cue_rate_swayed": 0.30666666666666664,
+    "cue_rate_unswayed": 0.47619047619047616,
+    "cue_fisher_p": 0.002762916704692195,
+    "judge_answer_matched": 0.34,
+    "activation_probe_auroc": 0.824
+  },
+  "gemma": {
+    "n": 318,
+    "n_swayed": 150,
+    "text_probe_overall": {
+      "auroc": 0.928611111111111,
+      "n": 318
+    },
+    "text_probe_answer_stratified": {
+      "auroc": 0.7169859156573372,
+      "n": 318,
+      "groups": 2
+    },
+    "text_probe_claim_stratified": {
+      "auroc": 0.933275462962963,
+      "n": 288,
+      "groups": 29
+    },
+    "text_probe_claim_and_answer_stratified": {
+      "auroc": NaN,
+      "n": 0
+    },
+    "shortcut_answer_stratified": 0.4474735426111719,
+    "shortcut_claim_stratified": 0.9305555555555556,
+    "cue_rate_swayed": 0.08666666666666667,
+    "cue_rate_unswayed": 0.02976190476190476,
+    "cue_fisher_p": 0.04905505545335949,
+    "judge_answer_matched": 0.52,
+    "activation_probe_auroc": 0.965
+  }
+}
