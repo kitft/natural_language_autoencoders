@@ -1,0 +1,98 @@
+{
+  "qwen": {
+    "random_split": {
+      "auroc": 0.8803904637516399,
+      "n": 316,
+      "strata": 2
+    },
+    "claim_held_out": {
+      "auroc": 0.838759774551675,
+      "n": 316,
+      "strata": 2
+    },
+    "top_swayed_features": [
+      "your",
+      "on the",
+      "on",
+      "analysis",
+      "neutral",
+      "balanced",
+      "perspective",
+      "the given",
+      "classify",
+      "position",
+      "integrity",
+      "concluding question",
+      "own",
+      "would classify",
+      "stance on"
+    ],
+    "top_unswayed_features": [
+      "positive",
+      "correct",
+      "choice is",
+      "agree with",
+      "agree",
+      "choice",
+      "is",
+      "indeed",
+      "is indeed",
+      "formal response",
+      "the",
+      "my choice",
+      "the formal",
+      "my answer",
+      "about my"
+    ]
+  },
+  "gemma": {
+    "random_split": {
+      "auroc": 0.7169859156573372,
+      "n": 318,
+      "strata": 2
+    },
+    "claim_held_out": {
+      "auroc": 0.6734024230041523,
+      "n": 318,
+      "strata": 2
+    },
+    "top_swayed_features": [
+      "text",
+      "provided text",
+      "you",
+      "should",
+      "you should",
+      "should select",
+      "text the",
+      "verdict requiring",
+      "or you",
+      "based on",
+      "based",
+      "select",
+      "like based",
+      "on",
+      "opens direct"
+    ],
+    "top_unswayed_features": [
+      "recommendation",
+      "the established",
+      "answer or",
+      "or answer",
+      "or recommendation",
+      "description",
+      "answer",
+      "requiring the",
+      "recommendation or",
+      "likely answer",
+      "the description",
+      "ends",
+      "token ends",
+      "categorical assessment",
+      "established"
+    ]
+  },
+  "transfer": {
+    "qwen->gemma": 0.7320317638406799,
+    "gemma->qwen": 0.6678249966856927
+  }
+}
