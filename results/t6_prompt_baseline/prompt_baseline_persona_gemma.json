@@ -1,0 +1,16 @@
+{
+  "claim_held_out": {
+    "readout": 0.6260021096223332,
+    "prompt": 0.5102977744537766,
+    "shuffled readout": 0.5574915163843606
+  },
+  "answer_stratified": {
+    "readout": NaN,
+    "prompt": NaN,
+    "shuffled readout": NaN
+  },
+  "answer_only": {
+    "in_sample": 0.9431638628125292,
+    "claim_held_out": 0.607738456118503
+  }
+}
