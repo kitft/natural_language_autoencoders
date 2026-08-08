@@ -1,0 +1,26 @@
+{
+  "1": {
+    "strength": 1.0,
+    "available": 0.956428395379802,
+    "recovered": 0.575,
+    "marked_fraction": 1.0
+  },
+  "0.6": {
+    "strength": 0.6,
+    "available": 0.9424259462571483,
+    "recovered": 0.675,
+    "marked_fraction": 0.6133333333333333
+  },
+  "0.3": {
+    "strength": 0.3,
+    "available": 0.9312640546348986,
+    "recovered": 0.6,
+    "marked_fraction": 0.3
+  },
+  "0": {
+    "strength": 0.0,
+    "available": 0.920461202824374,
+    "recovered": 0.7,
+    "marked_fraction": 0.0
+  }
+}
