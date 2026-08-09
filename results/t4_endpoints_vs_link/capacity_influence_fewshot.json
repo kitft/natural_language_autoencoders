@@ -1,0 +1,11 @@
+{
+  "measures": {
+    "sway": 0.597507560196908,
+    "topic retrieval": 0.1525,
+    "topic chance": 0.125,
+    "input pushed": 0.9225,
+    "answer chosen": NaN,
+    "shuffled sway": 0.5140943849471595
+  },
+  "rate_matched": {}
+}
